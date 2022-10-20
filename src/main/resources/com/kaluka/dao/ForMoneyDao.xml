@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaluka.dao.ForMoneyDao">
+
+    <!--boolean updateForMoney(ForMoney forMoney);-->
+    <update id="updateForMoney">
+        update t_money
+        <trim prefix="set" suffixOverrides=",">
+            <if test="uId!=null">u_id = #{uId},</if>
+            <if test="nMoney!=null">n_money = #{nMoney},</if>
+            <if test="permit!=null">permit = #{permit},</if>
+            <if test="pId!=null">p_id = #{pId},</if>
+        </trim>
+        where m_id=#{mId}
+    </update>
+</mapper>

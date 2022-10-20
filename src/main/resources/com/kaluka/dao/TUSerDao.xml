@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaluka.dao.TUserDao">
+
+    <!--boolean updateTUser(TUser tUser);-->
+    <update id="updateTUser">
+        update t_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="years!=null">years = #{years},</if>
+            <if test="birth!=null">birth = #{birth},</if>
+            <if test="eMail!=null">e_mail = #{eMail},</if>
+            <if test="hPeople!=null">h_people = #{hPeople},</if>
+            <if test="mPhone!=null">m_phone = #{mPhone},</if>
+        </trim>
+        where u_id=#{uId}
+    </update>
+
+</mapper>
